@@ -1,0 +1,19 @@
+.map-container {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 70px; /* la hauteur de votre footer */
+  box-sizing: border-box; /* pour inclure le padding dans la taille totale de l'élément */
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+  box-sizing: border-box; /* pour inclure la bordure dans la taille totale de l'élément */
+}
+
+#map {
+  height: 100%;
+}

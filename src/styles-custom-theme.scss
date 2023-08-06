@@ -1,0 +1,59 @@
+@use '@angular/material' as mat;
+
+
+@import '@angular/material/theming';
+@include mat.core();
+@import 'src/app/phalanger-colors.scss';
+
+$teal-palette-override: (
+  50: #e0f2f1,
+  100: #b2dfdb,
+  200: #80cbc4,
+  300: #4db6ac,
+  400: $main-green-color,
+  500: #009688,
+  600: #00897b,
+  700: #00796b,
+  800: #00695c,
+  900: #004d40,
+  A100: #a7ffeb,
+  A200: #64ffda,
+  A400: #1de9b6,
+  A700: #00bfa5,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  )
+);
+
+
+
+/* ======== Angular material custom themes ======== */
+$my-custom-primary: mat.define-palette($teal-palette-override, 400);
+$my-custom-accent: mat.define-palette(mat.$indigo-palette, 500);
+$my-custom-warn: mat.define-palette(mat.$indigo-palette, 500);
+$my-custom-theme: mat.define-light-theme((
+  color: (
+      primary: $my-custom-primary,
+      accent: $my-custom-accent,
+      warn: $my-custom-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+
+@include mat.core-theme($my-custom-theme);
+@include mat.button-theme($my-custom-theme);

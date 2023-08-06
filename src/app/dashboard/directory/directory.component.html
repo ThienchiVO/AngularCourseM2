@@ -1,0 +1,20 @@
+<div class="directory-container">
+
+  <h2>Répertoire</h2>
+  <div class="directory-content">
+    <div *ngFor="let letter_content of directoryItems" class="letter-container">
+      <div class="letter-value">{{letter_content.letter}}</div>
+      <div class="letter-contact-list">
+        <div *ngFor="let letter_content_contact of letter_content.value" class="letter-contact" (click)="openUserDetails(letter_content_contact.user.id, letter_content_contact.is_practicioner)">
+          <div class="contact-fullname"><span class="lastname">{{letter_content_contact.user.lastname }}</span><span class="firstname">{{letter_content_contact.user.firstname}}</span></div>
+          <div *ngIf="letter_content_contact.is_practicioner"  class="contact-is-practitioner">
+            <mat-icon fontIcon="health_and_safety"></mat-icon>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+<div class="resume-patient-day-container">
+  <div class="resume-patient-day-title">Patients du jour</div>
+  <div *ngFor="let fakePatient of fakesPatient" class="user-details-identity-card">
+    <div class="user-details-identity-avatar">
+      <mat-icon fontIcon="flutter_dash"></mat-icon>
+    </div>
+    <div class="user-details-identity-card-text">
+      <div class="user-details-identity-card-name">{{ fakePatient.firstname + " " + fakePatient.lastname }}</div>
+      <div class="user-details-identity-card-profession">{{ fakePatient.phone_number }}</div>
+      <div class="user-details-identity-card-duration-working">{{ fakePatient.address }}</div>
+    </div>
+  </div>
+</div>

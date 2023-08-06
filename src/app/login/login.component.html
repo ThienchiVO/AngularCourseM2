@@ -1,0 +1,34 @@
+<div class="login-form-container">
+  <div class="logo-container">
+    <div class="logo"></div>
+    <div class="logo-text">Phalanger</div>
+  </div>
+  <div class="welcome-text">
+    <h1>Bienvenue !</h1>
+    <h2>Se connecter</h2>
+    <p>Connectez-vous dès maintenant et rejoignez des milliers de médecins libéraux qui ont choisi notre application pour gagner en efficacité et en sérénité dans leur pratique médicale.</p>
+  </div>
+  <form [formGroup]="loginForm">
+    <div class="input-container dense-3">
+      <mat-label>Email</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer votre email" formControlName="username">
+      </mat-form-field>
+    </div>
+    <div class="input-container dense-3">
+      <mat-label>Mot de passe</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer votre mot de passe" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <a>Mot de passe oublié ?</a>
+    <button class="save-button" mat-raised-button color="primary" (click)="login()">Se connecter</button>
+  </form>
+  <div class="register-link">
+    Vous n'avez pas de compte ? <a routerLink="register" routerLinkActive="active">Créer un compte</a>
+  </div>
+</div>
+

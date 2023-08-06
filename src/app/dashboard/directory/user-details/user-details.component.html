@@ -1,0 +1,54 @@
+<div class="user-details-container">
+  <div class="user-details-identity-card">
+    <div class="user-details-identity-avatar">
+      <mat-icon fontIcon="flutter_dash"></mat-icon>
+    </div>
+    <div class="user-details-identity-card-text">
+      <div class="user-details-identity-card-name">{{fakeUser.firstname + " " + fakeUser.lastname}}</div>
+      <div class="user-details-identity-card-profession">{{fakeUser.profession}}</div>
+      <div class="user-details-identity-card-duration-working">
+        Horaires : <span>{{ msToTime(fakeUser.start_days) + " - " + msToTime(fakeUser.end_days) }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="user-details-call-to-action-buttons">
+    <button mat-raised-button color="primary">Appeler</button>
+    <button mat-raised-button color="primary">Contacter par mail</button>
+  </div>
+  <div class="user-details-other-informations-container">
+    <div class="user-details-adress">
+      <div class="user-details-title-container">
+        <div class="user-details-logo"><mat-icon fontIcon="home"></mat-icon></div>
+        <div class="user-details-label">Adresse : </div>
+      </div>
+      <div class="user-details-content user-details-adress-content">{{fakeUser.address}}</div>
+    </div>
+    <div class="user-details-number">
+      <div class="user-details-title-container">
+        <div class="user-details-logo"><mat-icon fontIcon="phone_enabled"></mat-icon></div>
+        <div class="user-details-label">Numéro de téléphone : </div>
+        <div class="user-details-content">{{fakeUser.phone_number}}</div>
+      </div>
+    </div>
+    <div class="user-details-email">
+      <div class="user-details-title-container">
+        <div class="user-details-logo"><mat-icon fontIcon="alternate_email"></mat-icon></div>
+        <div class="user-details-label">Adresse e-mail : </div>
+        <div class="user-details-content">{{fakeUser.email}}</div>
+      </div>
+    </div>
+    <div class="user-details-medical-acts">
+      <div class="user-details-title-container">
+        <div class="user-details-logo"><mat-icon fontIcon="health_and_safety"></mat-icon></div>
+        <div class="user-details-label">Actes médicaux : </div>
+      </div>
+      <div class="user-details-content">
+        <ul class="user-medical-acts-list">
+          <li *ngFor="let medical_act of fakeUser.medical_acts">
+            <span class="user-details-label">{{medical_act.code}} : </span>{{medical_act.description}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="add-meeting-container">
+  <div class="add-meeting-container-title">
+    Création d'un rendez-vous
+  </div>
+  <div class="add-meeting-switch-type-container">
+    <mat-button-toggle-group>
+      <mat-button-toggle [class.is-active]="isMedicalMeeting" (change)="isMedicalMeeting = true">Séance patient</mat-button-toggle>
+      <mat-button-toggle [class.is-active]="!isMedicalMeeting" (change)="isMedicalMeeting = false">Rendez-vous autre</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="add-meeting-form-container">
+    <div class="add-medical-meeting-form-container" *ngIf="isMedicalMeeting else otherMeeting">
+      <form [formGroup]="medicalMeetingForm">
+        <div class="input-container dense-3">
+          <mat-label>Patient</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="patient">
+              <mat-option *ngFor="let patient of fakePatientList" [value]="patient.id">
+                {{patient.lastname + ' ' + patient.firstname}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="input-container dense-3">
+          <mat-label>Date</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="input-container dense-3">
+          <mat-label>Durée du rendez-vous (en minutes)</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Entrer le nom" formControlName="duration">
+          </mat-form-field>
+        </div>
+        <div class="input-container dense-3">
+          <mat-label>Actes médicaux</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="medical_acts" multiple>
+              <mat-option *ngFor="let medicalAct of fakeMedicalActList" [value]="medicalAct.code">{{medicalAct.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="input-container dense-3">
+          <mat-label>Notes</mat-label>
+          <mat-form-field appearance="outline">
+            <textarea matInput placeholder="Rédiger la note" formControlName="note"></textarea>
+          </mat-form-field>
+        </div>
+        <button class="save-button" mat-raised-button color="primary" (click)="validateMedicalMeeting()">Valider</button>
+      </form>
+
+    </div>
+    <ng-template #otherMeeting>
+      <div class="add-other-meeting-form-container">
+        <form [formGroup]="otherMeetingForm">
+          <div class="input-container dense-3">
+            <mat-label>Libellé</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Entrer le libellé du rendez-vous" formControlName="label">
+            </mat-form-field>
+          </div>
+          <div class="input-container dense-3">
+            <mat-label>Date</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="input-container dense-3">
+            <mat-label>Durée du rendez-vous (en minutes)</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Entrer le nom" formControlName="duration">
+            </mat-form-field>
+          </div>
+          <div class="input-container dense-3">
+            <mat-label>Adresse</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Entrer l'adresse" formControlName="address">
+            </mat-form-field>
+          </div>
+          <div class="input-container dense-3">
+            <mat-label>Notes</mat-label>
+            <mat-form-field appearance="outline">
+              <textarea matInput placeholder="Rédiger la note" formControlName="note"></textarea>
+            </mat-form-field>
+          </div>
+          <button class="save-button" mat-raised-button color="primary" (click)="validateOtherMeeting()">Valider</button>
+        </form>
+      </div>
+    </ng-template>
+  </div>
+</div>

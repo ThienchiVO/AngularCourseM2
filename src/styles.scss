@@ -1,1 +1,72 @@
+@use '@angular/material' as mat;
+@import 'src/app/phalanger-colors.scss';
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: Epilogue;
+  src: url('./assets/fonts/Epilogue-Regular.ttf');
+}
+
+html, body { height: 100vh; width: 100vw }
+body { margin: 0; font-family: Epilogue, "Helvetica Neue", sans-serif; }
+
+.phalanger-bottom-sheet-container {
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+
+  .mat-bottom-sheet-container {
+    padding: 30px;
+
+    .add-elements-action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .add-elements-action-buttons-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: $main-green-color;
+      }
+
+      .add-elements-button {
+        height: 60px;
+      }
+    }
+  }
+}
+
+.mat-mdc-select-panel-above .mdc-menu-surface.mat-mdc-select-panel {
+  background-color: white;
+}
+
+.mat-datepicker-content .mat-calendar {
+  background-color: white;
+}
+
+.cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+  background-color: white;
+}
+
+.mat-mdc-snack-bar-container {
+  background-color: white;
+}
+
+// Matérial styles
+
+.dense-1 {
+  @include mat.all-component-densities(-1);
+}
+
+.dense-2 {
+  @include mat.all-component-densities(-2);
+}
+
+.dense-3 {
+  @include mat.all-component-densities(-3);
+}
+
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+}

@@ -1,0 +1,135 @@
+@import 'src/app/phalanger-colors.scss';
+
+:host {
+
+  font-family: Epilogue, serif;
+
+  .register-form-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    height: fit-content;
+    padding: 100px 30px 30px 30px;
+
+    .logo-container {
+
+      width: calc(100% - 145px + 60px);
+      position: relative;
+
+      .logo {
+        background-color: $secondary-green-color;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .logo-text {
+        font-size: 36px;
+        color: $main-green-color;
+        font-weight: 800;
+        text-align: end;
+        position: relative;
+        z-index: 0;
+        text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+      }
+    }
+
+    .welcome-text {
+
+      .welcome-text-title-with-back-button {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .back-button {
+          height: 40px;
+          width: 40px;
+          background-color: $main-green-color;
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+        }
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 800;
+        text-align: center;
+        color: $secondary-green-color;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: 700;;
+        color: $main-green-color;
+      }
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: $text-secondary-color;
+      }
+
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .input-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        mat-label {
+          font-size: 12px;
+          font-weight: 700;
+          color: $text-color;
+        }
+
+        mat-form-field {
+          width: 100%;
+        }
+      }
+
+      a {
+        font-size: 12px;
+        font-weight: 700;
+        color: $secondary-green-color;
+        text-decoration: none;
+        width: 100%;
+        text-align: end;
+      }
+
+      .save-button {
+        width: 100%;
+        margin-top: 20px;
+        color: white;
+        font-weight: 700;
+      }
+    }
+
+    .register-link {
+      color: $text-secondary-color;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+
+      a {
+        color: $secondary-green-color;
+      }
+    }
+  }
+}

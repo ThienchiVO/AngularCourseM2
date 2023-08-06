@@ -1,0 +1,59 @@
+<div class="register-form-container">
+  <div class="logo-container">
+    <div class="logo"></div>
+    <div class="logo-text">Phalanger</div>
+  </div>
+  <div class="welcome-text">
+    <h1>Bienvenue !</h1>
+    <div class="welcome-text-title-with-back-button" (click)="backTologin()">
+      <div class="back-button">
+        <mat-icon fontIcon="arrow_back_ios_new"></mat-icon>
+      </div>
+      <h2>S'inscrire</h2>
+    </div>
+
+    <p>Inscrivez-vous dès maintenant et rejoignez des milliers de médecins libéraux qui ont choisi notre application pour gagner en efficacité et en sérénité dans leur pratique médicale.</p>
+  </div>
+  <form [formGroup]="registerForm">
+    <div class="input-container dense-3">
+      <mat-label>Nom</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer le nom" formControlName="lastname">
+      </mat-form-field>
+    </div>
+    <div class="input-container dense-3">
+      <mat-label>Prénom</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer le prénom" formControlName="firstname">
+      </mat-form-field>
+    </div>
+    <div class="input-container dense-3">
+      <mat-label>Adresse</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer l'adresse" formControlName="address">
+      </mat-form-field>
+    </div>
+    <div class="input-container dense-3">
+      <mat-label>Numéro de téléphone</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer le numéro de téléphone" formControlName="phone_number">
+      </mat-form-field>
+    </div>
+    <div class="input-container dense-3">
+      <mat-label>Adresse e-mail</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer l'adresse e-mail" formControlName="email">
+      </mat-form-field>
+    </div>
+    <div class="input-container dense-3">
+      <mat-label>Mot de passe</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Entrer votre mot de passe" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button class="save-button" mat-raised-button color="primary" (click)="register()">S'inscrire</button>
+  </form>
+</div>

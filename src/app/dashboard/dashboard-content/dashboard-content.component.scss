@@ -1,0 +1,295 @@
+@import 'src/app/phalanger-colors.scss';
+
+:host {
+
+  .dashboard-container {
+    max-height: calc(100vh - 125px);
+    min-height: calc(100vh - 125px);
+    overflow-x: scroll;
+    padding: 30px 30px 0 30px;
+
+
+    .current-user-container {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+
+      .user-action {
+        height: 40px;
+        width: 40px;
+        background-color: $main-green-color;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+      }
+
+      .user-text {
+        font-size: 12px;
+        color: #858585;
+        font-weight: 400;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .user-fullname {
+          font-size: 18px;
+          font-weight: 700;
+          color: #000000;
+        }
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+
+        ::ng-deep .material-icons {
+          font-size: 40px;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    .user-shortcut-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .user-shortcut-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: $text-color;
+        margin: 30px 0 20px 0;
+      }
+
+      .user-shortcut-content {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .user-shortcut-content-element {
+          flex: 1;
+          height: 65px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #E0ECDE;
+          color: $main-green-color;
+          border-radius: 4px;
+          text-decoration: none;
+
+          p {
+            font-size: 8px;
+            font-weight: 600;
+          }
+
+
+        }
+      }
+    }
+
+    .user-current-course-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .user-current-course-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: $text-color;
+        margin: 30px 0 20px 0;
+      }
+
+
+      .user-current-course-content-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        background-color: $card-background-color;
+        border-radius: 4px;
+        padding: 10px;
+
+        .user-current-course-content-logo {
+          height: 38px;
+          width: 38px;
+
+          ::ng-deep .material-icons {
+            font-size: 38px;
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        .user-current-courses-content {
+
+          font-size: 12px;
+          font-weight: 400;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          span.label {
+            font-weight: 700;
+          }
+
+          .user-current-courses-content-top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .user-current-courses-content-right {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              .user-current-courses-current-weather {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                gap: 5px;
+                align-items: center;
+
+                ::ng-deep .material-icons {
+                  font-size: 12px;
+                  height: 100%;
+                  width: 100%;
+                }
+              }
+            }
+
+            .user-current-courses-content-left {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .user-patient-to-schedule-container {
+
+      .user-patient-to-schedule-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: $text-color;
+        margin: 30px 0 20px 0;
+      }
+
+      .user-patient-to-schedule-list-container {
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .patient-to-schedule {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+          background-color: $card-background-color;
+          border-radius: 4px;
+          padding: 10px;
+
+          .patient-to-schedule-avatar {
+            height: 35px;
+            width: 35px;
+
+            ::ng-deep .material-icons {
+              font-size: 35px;
+              height: 100%;
+              width: 100%;
+            }
+          }
+
+          .patient-to-schedule-text {
+            font-size: 12px;
+            font-weight: 400;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .patient-to-schedule-fullname {
+              font-weight: 700;
+
+              span {
+                color: #DB3B3B;
+              }
+            }
+          }
+        }
+
+        .user-patient-to-schedule-list-action {
+          height: 30px;
+        }
+      }
+    }
+
+    .user-patient-to-check-container {
+
+      .user-patient-to-check-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: $text-color;
+        margin: 30px 0 20px 0;
+      }
+
+      .user-patient-to-check-list-container {
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .patient-to-check {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+          background-color: $card-background-color;
+          border-radius: 4px;
+          padding: 10px;
+
+          .patient-to-check-avatar {
+            height: 35px;
+            width: 35px;
+
+            ::ng-deep .material-icons {
+              font-size: 35px;
+              height: 100%;
+              width: 100%;
+            }
+          }
+
+          .patient-to-check-text {
+            font-size: 12px;
+            font-weight: 400;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .patient-to-check-fullname {
+              font-weight: 700;
+
+              span {
+                color: #DB3B3B;
+              }
+            }
+          }
+        }
+
+        .user-patient-to-check-list-action {
+          height: 30px;
+        }
+      }
+    }
+  }
+}

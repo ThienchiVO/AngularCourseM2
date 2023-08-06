@@ -1,0 +1,63 @@
+@import 'src/app/phalanger-colors.scss';
+
+:host {
+
+  .resume-patient-day-container {
+
+    .resume-patient-day-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 800;
+      color: $main-green-color;
+    }
+
+    .user-details-identity-card {
+      background-color: $card-background-color;
+      border-radius: 4px;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .user-details-identity-avatar {
+        height: 75px;
+        width: 75px;
+
+        ::ng-deep .material-icons {
+          font-size: 75px;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .user-details-identity-card-text {
+        font-size: 12px;
+        font-weight: 700;
+        color: $text-color;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .user-details-identity-card-name {
+          font-size: 18px;
+        }
+
+        .user-details-identity-card-profession {
+          color: $secondary-green-color;
+        }
+
+        .user-details-identity-card-duration-working {
+          span {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+
+}

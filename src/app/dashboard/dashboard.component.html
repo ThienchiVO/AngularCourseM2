@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="header"></div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <nav class="footer-nav-bar">
+      <a routerLink="/" routerLinkActive="active">
+        <mat-icon fontIcon="dashboard"></mat-icon>
+        <label>Dashboard</label>
+      </a>
+      <a routerLink="/directory" routerLinkActive="active">
+        <mat-icon fontIcon="supervised_user_circle"></mat-icon>
+        <label>Répertoire</label>
+      </a>
+      <div class="add-button" (click)="openBottomSheet()">
+        <mat-icon fontIcon="add"></mat-icon>
+      </div>
+      <a routerLink="/calendar" routerLinkActive="active">
+        <mat-icon fontIcon="calendar_today"></mat-icon>
+        <label>Calendrier</label>
+      </a>
+      <a routerLink="/maps" routerLinkActive="active">
+        <mat-icon fontIcon="map"></mat-icon>
+        <label>Carte</label>
+      </a>
+    </nav>
+  </div>
+</div>

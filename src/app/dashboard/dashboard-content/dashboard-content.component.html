@@ -1,0 +1,77 @@
+<div class="dashboard-container">
+  <div class="current-user-container">
+    <div class="user-avatar"><mat-icon fontIcon="flutter_dash"></mat-icon></div>
+    <div class="user-text">
+      <div>Bonjour,</div>
+      <div class="user-fullname">{{ fakePractitioner.firstname + " " + fakePractitioner.lastname }}</div>
+    </div>
+    <div class="user-action" (click)="logout()">
+      <mat-icon fontIcon="logout"></mat-icon>
+    </div>
+  </div>
+  <div class="user-shortcut-container">
+    <div class="user-shortcut-title">Raccourcis :</div>
+    <div class="user-shortcut-content">
+      <a routerLink="prescriptions" routerLinkActive="active" class="user-shortcut-content-element"><mat-icon fontIcon="content_paste_search"></mat-icon><p>Prescriptions</p></a>
+      <a routerLink="settings" routerLinkActive="active" class="user-shortcut-content-element"><mat-icon fontIcon="settings"></mat-icon><p>Réglages</p></a>
+    </div>
+  </div>
+  <div class="user-current-course-container">
+    <div class="user-current-course-title">Parcours du jour :</div>
+    <div class="user-current-course-content-container">
+      <div class="user-current-course-content-logo"><mat-icon fontIcon="location_on"></mat-icon></div>
+      <div class="user-current-courses-content">
+        <div class="user-current-courses-content-top">
+          <div class="user-current-courses-content-left">
+            <div class="user-current-courses-start"><span class="label">Départ : </span>{{ msToTime(fakePractitioner.start_days) }}</div>
+            <div class="user-current-courses-end"><span class="label">Fin : </span>{{ msToTime(currentRouteDurationEnd)}}</div>
+          </div>
+          <div class="user-current-courses-content-right">
+            <div class="user-current-courses-current-date"><span class="label">{{ currentDate }}</span></div>
+            <div class="user-current-courses-current-weather">
+              <span class="label">29°C</span>
+              <span class="weather-icon"><mat-icon fontIcon="sunny"></mat-icon></span>
+            </div>
+          </div>
+        </div>
+        <div class="user-current-courses-sessions-count">
+          <span class="label">Nombre de séances : </span>{{ fakeCurrentRoute.sessions.length }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-patient-to-schedule-container">
+    <div class="user-patient-to-schedule-title">Patients avec des séances à programmer :</div>
+    <div class="user-patient-to-schedule-list-container">
+      <ng-container *ngFor="let patient of fakePatientListToSchedule; let index = index">
+        <div *ngIf="index < 1 || allPatientToSchedule" class="patient-to-schedule">
+          <div class="patient-to-schedule-avatar"><mat-icon fontIcon="flutter_dash"></mat-icon></div>
+          <div class="patient-to-schedule-text">
+            <div class="patient-to-schedule-fullname">{{ patient.name }} - <span>Vu il y a {{patient.days_last_session_ago}} jours.</span></div>
+            <div class="patient-to-schedule-sessions-count">{{patient.session_rest}} séances restantes</div>
+          </div>
+        </div>
+      </ng-container>
+      <button mat-raised-button color="primary" class="user-patient-to-schedule-list-action" (click)="allPatientToSchedule = !allPatientToSchedule">
+        {{ !allPatientToSchedule ? 'Voir tout' : 'Réduire' }} ({{ fakePatientListToSchedule.length }})
+      </button>
+    </div>
+  </div>
+  <div class="user-patient-to-check-container">
+    <div class="user-patient-to-check-title">Patients avec des séances à pointer :</div>
+    <div class="user-patient-to-check-list-container">
+      <ng-container *ngFor="let patient of fakePatientListToCheck; let index = index">
+        <div *ngIf="index < 1 || allPatientToCheck" class="patient-to-check">
+          <div class="patient-to-check-avatar"><mat-icon fontIcon="flutter_dash"></mat-icon></div>
+          <div class="patient-to-check-text">
+            <div class="patient-to-check-fullname">{{ patient.name_patient }} - <span>Absence de pointage</span></div>
+            <div class="patient-to-check-sessions-count">Rendez-vous du {{formatDate(patient.date_uncheck_session)}}</div>
+          </div>
+        </div>
+      </ng-container>
+      <button mat-raised-button color="primary" class="user-patient-to-check-list-action" (click)="allPatientToCheck = !allPatientToCheck">
+        {{ !allPatientToCheck ? 'Voir tout' : 'Réduire' }} ({{ fakePatientListToCheck.length }})
+      </button>
+    </div>
+  </div>
+</div>
